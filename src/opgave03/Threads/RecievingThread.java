@@ -1,4 +1,4 @@
-package opgave03;
+package opgave03.Threads;
 
 import java.io.BufferedReader;
 import java.io.IOException;

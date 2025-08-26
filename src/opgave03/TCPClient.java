@@ -1,5 +1,8 @@
 package opgave03;
 
+import opgave03.Threads.RecievingThread;
+import opgave03.Threads.TCPSendThread;
+
 import java.net.Socket;
 
 public class TCPClient {
