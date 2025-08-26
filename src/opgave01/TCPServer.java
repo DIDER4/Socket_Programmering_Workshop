@@ -9,7 +9,7 @@ import java.net.Socket;
 public class TCPServer {
     public static void main(String[] args) throws Exception {
 
-       
+
             String clientSentence;
             String capitalizedSentence;
             ServerSocket welcomSocket = new ServerSocket(6789);
@@ -22,10 +22,12 @@ public class TCPServer {
             while(true){
             clientSentence = inFromClient.readLine();
             System.out.println(clientSentence);
+            while(true){
             BufferedReader consoleReader = new BufferedReader(new InputStreamReader(System.in));
             System.out.print("Indtast svar besked");
             capitalizedSentence = consoleReader.readLine().toUpperCase() + '\n';
             outToClient.writeBytes(capitalizedSentence);
+            }
         }
     }
 }
