@@ -20,8 +20,8 @@ public class TCPServer {
 
         clientSentence = inFromClient.readLine();
         System.out.println(clientSentence);
-        capitalizedSentence = clientSentence.toUpperCase() + '\n';
+        BufferedReader consoleReader = new BufferedReader(new InputStreamReader(System.in));        System.out.print("Indtast svar besked");
+        capitalizedSentence = consoleReader.readLine() + '\n';
         outToClient.writeBytes(capitalizedSentence);
-
     }
 }
