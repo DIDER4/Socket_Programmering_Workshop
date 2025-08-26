@@ -22,12 +22,10 @@ public class TCPServer {
             while(true){
             clientSentence = inFromClient.readLine();
             System.out.println(clientSentence);
-            while(true){
             BufferedReader consoleReader = new BufferedReader(new InputStreamReader(System.in));
             System.out.print("Indtast svar besked");
             capitalizedSentence = consoleReader.readLine().toUpperCase() + '\n';
             outToClient.writeBytes(capitalizedSentence);
-            }
         }
     }
 }
