@@ -5,18 +5,18 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class NavneRegister {
-    private Map<String, String> serverAdresser = new HashMap<>();
 
-    public synchronized void registerClient(String nickname, String netInfo) {
-        serverAdresser.put(nickname, netInfo);
+    private final Map<String, String> serverAdresser = new HashMap<>();
+
+    public NavneRegister() {
+        serverAdresser.put("Simon", "localhost");
+        serverAdresser.put("Loke", "192.168.1.2");
+        serverAdresser.put("Henrik", "192.168.1.3");
+        serverAdresser.put("Govher", "192.168.1.4");
     }
 
-    public synchronized void removeClient(String nickname) {
-        serverAdresser.remove(nickname);
-    }
-
-    public synchronized Collection<Map.Entry<String, String>> getClients() {
-        return serverAdresser.entrySet();
+    public Map<String, String> getClients() {
+        return serverAdresser;
     }
 }
 
