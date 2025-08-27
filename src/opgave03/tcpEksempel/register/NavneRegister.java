@@ -19,3 +19,4 @@ public class NavneRegister {
         return serverAdresser.entrySet();
     }
 }
+
