@@ -1,4 +1,4 @@
-package opgave03.threads;
+package opgave03.tcpEksempel.threads;
 
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
@@ -7,8 +7,8 @@ import java.net.Socket;
 
 public class TCPSendThread extends Thread {
 
-    Socket connectionSocket;
-    String message;
+    private Socket connectionSocket;
+    private String message;
 
     public TCPSendThread(Socket clientSocket) {
         this.connectionSocket = clientSocket;

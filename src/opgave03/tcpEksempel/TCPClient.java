@@ -1,7 +1,7 @@
-package opgave03;
+package opgave03.tcpEksempel;
 
-import opgave03.threads.RecievingThread;
-import opgave03.threads.TCPSendThread;
+import opgave03.tcpEksempel.threads.RecievingThread;
+import opgave03.tcpEksempel.threads.TCPSendThread;
 
 import java.net.Socket;
 

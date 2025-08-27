@@ -1,4 +1,4 @@
-package opgave03.threads;
+package opgave03.tcpEksempel.threads;
 
 import java.io.BufferedReader;
 import java.io.IOException;

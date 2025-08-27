@@ -1,10 +1,10 @@
-package opgave03.register;
+package opgave03.tcpEksempel.register;
 
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
-public class navneRegister {
+public class NavneRegister {
     private Map<String, String> serverAdresser = new HashMap<>();
 
     public synchronized void registerClient(String nickname, String netInfo) {
