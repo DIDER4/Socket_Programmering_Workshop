@@ -9,7 +9,7 @@ public class TCPClient {
 
 	public static void main(String argv[]) throws Exception {
 
-		Socket clientSocket = new Socket("localhost", 6789);
+		Socket clientSocket = new Socket("localhost", 6790);
 
 		(new TCPSendThread(clientSocket)).start();
 		(new RecievingThread(clientSocket)).start();

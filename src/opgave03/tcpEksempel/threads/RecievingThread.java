@@ -19,13 +19,12 @@ public class RecievingThread extends Thread {
             BufferedReader inFromAfsender = new BufferedReader(new InputStreamReader(connSocket.getInputStream()));
             System.out.println("Forbundet til server.");
 
-            while (true) {
-                message = inFromAfsender.readLine();
+            String message;
+            while ((message = inFromAfsender.readLine()) != null) {
                 System.out.println("From sender: " + message);
             }
 
-        } catch (
-                IOException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }

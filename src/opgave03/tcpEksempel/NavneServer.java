@@ -15,17 +15,17 @@ public class NavneServer {
         // Opretter navneregister og tilføjer nogle test-brugere
         NavneRegister navneRegister = new NavneRegister();
         navneRegister.registerClient("Simon", "localhost");
-        navneRegister.registerClient("Loke", "");
+        navneRegister.registerClient("Loke", "10.10.69.69");
         navneRegister.registerClient("Henrik","");
         navneRegister.registerClient("Govher","");
 
         // Starter serveren og accepterer flere brugere
         ServerSocket serverSocket = new ServerSocket(6790);
-        System.out.println("Navneserveren kører på port 6790...");
         while (true) {
             // Venter på en klient
             Socket clientSocket = serverSocket.accept();
             System.out.println("Ny klient forbundet: " + clientSocket.getInetAddress());
+            System.out.println("Udskriver navneregister til: " + clientSocket.getInetAddress());
             // Starter en tråd til at håndtere denne klient
             new NavneServerThread(clientSocket, navneRegister).start();
         }

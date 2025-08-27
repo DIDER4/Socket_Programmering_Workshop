@@ -18,7 +18,6 @@ public class TCPSendThread extends Thread {
         try{
             BufferedReader inFromUser = new BufferedReader(new InputStreamReader(System.in));
             DataOutputStream outToOtherUser = new DataOutputStream(connectionSocket.getOutputStream());
-            System.out.println("Chat løs: ");
             while(true){
                 message = inFromUser.readLine();
                 outToOtherUser.writeBytes(message + '\n');

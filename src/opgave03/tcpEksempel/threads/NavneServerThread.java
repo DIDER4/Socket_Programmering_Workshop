@@ -22,34 +22,14 @@ public class NavneServerThread extends Thread {
 
     public void run() {
         try {
-            BufferedReader inFromUser = new BufferedReader(new InputStreamReader(System.in));
-            DataOutputStream outToOtherUser = new DataOutputStream(connectionSocket.getOutputStream());
-
-            //Nedenstående udskriver hele navneregisteret og beder bruger inputte det ønskede brugernavn
-            System.out.println(getEntireNavneRegister());
-            System.out.println("Indtast det ønskede brugernavn: ");
-            nickname = inFromUser.readLine();
-
-            //Nedenstående opretter en socket ud fra det modtagede nickname
-            Socket clientSocket = new Socket(getIpAdresse(nickname), 6789);
-            //Starter en ny thread der tilslutter den oprettede socket
-            (new TCPSendThread(clientSocket)).start();
-            (new RecievingThread(clientSocket)).start();
+            DataOutputStream outToClient = new DataOutputStream(connectionSocket.getOutputStream());
+            for (Map.Entry<String, String> entry : navn.getClients()) {
+                outToClient.writeBytes(entry.getKey() + " IP: " + entry.getValue() + "\n");
+            }
+            outToClient.writeBytes("-------------------------\n");
+            connectionSocket.close();
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
         }
-
-    }
-
-    public synchronized String getIpAdresse(String nickname) {
-        return navn.getClients().stream()
-                .filter(entry -> entry.getKey().equals(nickname))
-                .map(Map.Entry::getValue)
-                .findFirst()
-                .orElse(null);
-    }
-
-    public synchronized Collection getEntireNavneRegister(){
-        return navn.getClients();
     }
 }

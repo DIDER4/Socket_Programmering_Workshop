@@ -11,11 +11,10 @@ public class TCPServer {
 
     public static void main(String[] args) throws Exception {
         ServerSocket welcomeSocket = new ServerSocket(6789);
-        NavneRegister navneRegister = new NavneRegister();
 
         while (true) {
             Socket connectionSocket = welcomeSocket.accept();
-            new RecievingThread(connectionSocket, navneRegister).start();
+            new RecievingThread(connectionSocket).start();
         }
     }
 }
