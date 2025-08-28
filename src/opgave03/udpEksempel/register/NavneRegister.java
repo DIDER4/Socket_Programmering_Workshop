@@ -18,5 +18,9 @@ public class NavneRegister {
     public Map<String, String> getClients() {
         return serverAdresser;
     }
+
+    public synchronized void registerClient(String nickname, String netInfo) {
+        serverAdresser.put(nickname, netInfo);
+    }
 }
 

@@ -12,7 +12,6 @@ import java.util.Map;
 public class NavneServerThread extends Thread {
 
     Socket connectionSocket;
-    String nickname;
     public NavneRegister navn;
 
     public NavneServerThread(Socket clientSocket, NavneRegister navn) {
