@@ -6,20 +6,16 @@ import opgave03.tcpEksempel.threads.NavneServerThread;
 import java.net.ServerSocket;
 import java.net.Socket;
 
-/**
- * Navneserveren lytter på port 6790 og håndterer flere klienter samtidigt.
- * Klienter kan registrere sig og få en liste over alle registrerede klienter.
- */
 public class NavneServer {
     public static void main(String[] args) throws Exception {
-        // Opretter navneregister og tilføjer nogle test-brugere
+        // Opretter et navneregister og tilføjer Simon
         NavneRegister navneRegister = new NavneRegister();
         navneRegister.registerClient("Simon", "localhost");
         navneRegister.registerClient("Loke", "10.10.69.69");
         navneRegister.registerClient("Henrik","");
         navneRegister.registerClient("Govher","");
 
-        // Starter serveren og accepterer flere brugere
+        // Starter serveren og acceptere flere brugere
         ServerSocket serverSocket = new ServerSocket(6790);
         while (true) {
             // Venter på en klient
