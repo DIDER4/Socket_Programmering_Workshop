@@ -15,7 +15,7 @@ class UDPClient {
         byte[] receiveData = new byte[1024];
 
         while (true) {
-            System.out.print("SKRIV EN COMMAND TIL SERVEREN (TOMT FOR AT SLUTTE): ");
+            System.out.print("SKRIV EN COMMAND TIL SERVEREN (TOMT FOR AT SLUTTE - REGISTER FOR NAVNEREGISTER - REGISTERCLIENT + BRURGER FOR OPRETTELSE): ");
             String brugerInput = userInput.readLine();
             if (brugerInput == null || brugerInput.isEmpty()) break;
 
